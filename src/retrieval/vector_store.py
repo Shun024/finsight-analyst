@@ -76,16 +76,21 @@ class VectorStore:
         """
         query_embedding = self.embedder.embed_text(query)
 
-        where = {}
-        if filter_company:
-            where["company"] = filter_company
-        if filter_year:
-            where["year"] = filter_year
+        where = None
+        if filter_company and filter_year:
+            where = {"$and": [
+                {"company": {"$eq": filter_company}},
+                {"year": {"$eq": filter_year}},
+            ]}
+        elif filter_company:
+            where = {"company": {"$eq": filter_company}}
+        elif filter_year:
+            where = {"year": {"$eq": filter_year}}
 
         results = self.collection.query(
             query_embeddings=[query_embedding],
             n_results=top_k,
-            where=where if where else None,
+            where=where,        # now None or properly structured
             include=["documents", "metadatas", "distances"],
         )
 
