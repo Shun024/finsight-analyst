@@ -10,3 +10,4 @@ data/chroma/
 mlruns/
 *.egg-info/
 dist/
+data/processed/chunks.json
