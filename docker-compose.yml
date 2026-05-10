@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  finsight:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data/chroma:/app/data/chroma
+    env_file:
+      - .env
