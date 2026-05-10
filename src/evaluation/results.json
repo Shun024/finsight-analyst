@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-05-10T23:28:30.105090",
+  "scores": {
+    "faithfulness": 0.7957,
+    "answer_relevancy": 0.8291,
+    "context_precision": 0.5533,
+    "context_recall": 0.7
+  }
+}

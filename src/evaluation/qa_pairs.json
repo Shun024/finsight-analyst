@@ -1,0 +1,72 @@
+[
+  {
+    "question": "What was Lloyds Banking Group's CET1 ratio at 31 December 2023?",
+    "ground_truth": "Lloyds Banking Group's CET1 ratio at 31 December 2023 was 14.6%.",
+    "company": "Lloyds Banking Group",
+    "year": "2023",
+    "type": "factual"
+  },
+  {
+    "question": "What was Lloyds Banking Group's CET1 ratio at 31 December 2024?",
+    "ground_truth": "Lloyds Banking Group's CET1 ratio at 31 December 2024 was 13.5%.",
+    "company": "Lloyds Banking Group",
+    "year": "2024",
+    "type": "factual"
+  },
+  {
+    "question": "What was Barclays CET1 ratio in 2024?",
+    "ground_truth": "Barclays CET1 ratio in 2024 was 13.6%.",
+    "company": "Barclays",
+    "year": "2024",
+    "type": "factual"
+  },
+  {
+    "question": "What was Barclays net interest income for 2024?",
+    "ground_truth": "Barclays net interest income for 2024 was £11,259 million.",
+    "company": "Barclays",
+    "year": "2024",
+    "type": "factual"
+  },
+  {
+    "question": "What were the key risks to the economic outlook identified by the Bank of England in November 2024?",
+    "ground_truth": "The Bank of England identified risks including weakening business sentiment, declining activity expectations, and uncertainty around wholesale energy prices.",
+    "company": "Bank of England",
+    "year": "2024",
+    "type": "analytical"
+  },
+  {
+    "question": "What was Lloyds Banking Group's statutory profit before tax in 2023?",
+    "ground_truth": "Lloyds Banking Group's statutory profit before tax in 2023 was £5.5 billion.",
+    "company": "Lloyds Banking Group",
+    "year": "2023",
+    "type": "factual"
+  },
+  {
+    "question": "What was Barclays return on tangible equity in 2024?",
+    "ground_truth": "Barclays return on tangible equity (RoTE) in 2024 was 10.5%.",
+    "company": "Barclays",
+    "year": "2024",
+    "type": "factual"
+  },
+  {
+    "question": "What is the Bank of England's inflation target?",
+    "ground_truth": "The Bank of England's inflation target is 2%.",
+    "company": "Bank of England",
+    "year": "2024",
+    "type": "factual"
+  },
+  {
+    "question": "What was Lloyds Banking Group's net interest margin in 2023?",
+    "ground_truth": "Lloyds Banking Group's net interest margin in 2023 was 3.11%.",
+    "company": "Lloyds Banking Group",
+    "year": "2023",
+    "type": "factual"
+  },
+  {
+    "question": "What strategic priorities did Barclays outline for 2024?",
+    "ground_truth": "Barclays outlined priorities including growing its UK consumer bank, optimising its investment bank, and improving returns through cost efficiency.",
+    "company": "Barclays",
+    "year": "2024",
+    "type": "analytical"
+  }
+]
