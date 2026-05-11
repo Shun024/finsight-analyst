@@ -12,6 +12,7 @@ from pydantic import BaseModel
 
 from src.agents.graph import run_query
 
+
 # App setup
 app = FastAPI(
     title="FinSight Analyst API",
@@ -116,6 +117,12 @@ def query(request: QueryRequest):
         )
         for c in result.get("citations", [])
     ]
+
+    # Log for monitoring
+    try:
+        log_query_result(result, request.question)
+    except Exception:
+        pass  # Never let monitoring break the API
 
     return QueryResponse(
         question=request.question,
