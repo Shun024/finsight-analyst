@@ -1,0 +1,78 @@
+name: RAGAs Evaluation
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/retrieval/**'
+      - 'src/agents/**'
+      - 'src/ingestion/**'
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Pull data with DVC
+        run: |
+          dvc pull
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+      - name: Run RAGAs benchmark
+        run: |
+          PYTHONPATH=. python -m src.evaluation.benchmark
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+      - name: Post results as PR comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const results = JSON.parse(
+              fs.readFileSync('src/evaluation/results.json', 'utf8')
+            );
+            const s = results.scores;
+            const avg = ((s.faithfulness + s.answer_relevancy + 
+                         s.context_precision + s.context_recall) / 4).toFixed(3);
+            
+            const body = `## 📊 RAGAs Evaluation Results
+            
+            | Metric | Score |
+            |---|---|
+            | Faithfulness | ${s.faithfulness} |
+            | Answer Relevancy | ${s.answer_relevancy} |
+            | Context Precision | ${s.context_precision} |
+            | Context Recall | ${s.context_recall} |
+            | **Overall Average** | **${avg}** |
+            
+            *Evaluated on 10 hand-labelled Q&A pairs from real financial filings.*`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
