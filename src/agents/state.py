@@ -3,7 +3,7 @@ Shared state object passed between all agent nodes in the graph.
 LangGraph passes this through each node, each node can modify it.
 """
 
-from typing import TypedDict, Optional
+from typing import Optional, TypedDict
 
 
 class AgentState(TypedDict):

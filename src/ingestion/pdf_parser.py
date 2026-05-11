@@ -3,9 +3,10 @@ PDF Parser for financial documents.
 Extracts text page-by-page with metadata using PyMuPDF.
 """
 
-import fitz  # pymupdf
-from pathlib import Path
 from dataclasses import dataclass
+from pathlib import Path
+
+import fitz  # pymupdf
 
 
 @dataclass
@@ -23,7 +24,6 @@ def extract_company_metadata(filename: str) -> dict:
     Infer company, doc_type, and year from filename.
     """
     name = Path(filename).stem.lower()
-    parts = name.split("-") + name.split("_")
 
     # Company detection
     company_map = {

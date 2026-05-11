@@ -3,8 +3,10 @@ Analyst Agent: synthesises retrieved chunks into a structured answer with citati
 """
 
 import os
+
 from dotenv import load_dotenv
 from openai import OpenAI
+
 from src.agents.state import AgentState
 
 load_dotenv()

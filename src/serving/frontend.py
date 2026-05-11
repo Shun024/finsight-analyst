@@ -3,6 +3,7 @@ FinSight Analyst — Streamlit Frontend
 """
 
 import streamlit as st
+
 from src.agents.graph import run_query
 
 # Page config

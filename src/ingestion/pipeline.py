@@ -3,9 +3,10 @@ Main ingestion pipeline — run this to process all PDFs.
 """
 
 from pathlib import Path
-from src.ingestion.pdf_parser import parse_all_pdfs
+
 from src.ingestion.chunker import chunk_pages
 from src.ingestion.metadata_extractor import save_chunks
+from src.ingestion.pdf_parser import parse_all_pdfs
 
 
 def run_ingestion(

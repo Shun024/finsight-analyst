@@ -1,6 +1,6 @@
 """Tests for the chunking module."""
 
-from src.ingestion.chunker import split_text_into_chunks, count_tokens
+from src.ingestion.chunker import count_tokens, split_text_into_chunks
 
 
 def test_chunk_count_reasonable():

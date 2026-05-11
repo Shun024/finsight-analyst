@@ -6,6 +6,7 @@ Critical for financial terminology (CET1, Basel III, specific figures).
 import json
 import pickle
 from pathlib import Path
+
 from rank_bm25 import BM25Okapi
 
 

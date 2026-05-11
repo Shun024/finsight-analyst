@@ -3,8 +3,8 @@ Hybrid retriever: combines dense (ChromaDB) + sparse (BM25) results
 using Reciprocal Rank Fusion (RRF) — no score normalisation needed.
 """
 
-from src.retrieval.vector_store import VectorStore
 from src.retrieval.bm25_retriever import BM25Retriever
+from src.retrieval.vector_store import VectorStore
 
 
 def reciprocal_rank_fusion(

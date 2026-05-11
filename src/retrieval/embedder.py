@@ -5,6 +5,7 @@ Batches requests to stay within API rate limits.
 
 import os
 import time
+
 from dotenv import load_dotenv
 from openai import OpenAI
 

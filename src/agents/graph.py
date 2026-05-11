@@ -2,12 +2,13 @@
 LangGraph StateGraph: wires all agent nodes into a pipeline.
 """
 
-from langgraph.graph import StateGraph, END
-from src.agents.state import AgentState
-from src.agents.router import router_node
-from src.agents.retriever_node import retriever_node
+from langgraph.graph import END, StateGraph
+
 from src.agents.analyst import analyst_node
 from src.agents.critic import critic_node
+from src.agents.retriever_node import retriever_node
+from src.agents.router import router_node
+from src.agents.state import AgentState
 
 
 def build_graph() -> StateGraph:

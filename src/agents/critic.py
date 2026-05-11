@@ -3,10 +3,12 @@ Critic Agent: checks the analyst's answer for hallucination and confidence.
 This is the key differentiator — production RAG needs self-evaluation.
 """
 
-import os
 import json
+import os
+
 from dotenv import load_dotenv
 from openai import OpenAI
+
 from src.agents.state import AgentState
 
 load_dotenv()

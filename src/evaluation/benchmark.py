@@ -6,15 +6,17 @@ Benchmarks the hybrid agent against a naive dense-only baseline.
 import json
 import os
 from datetime import datetime
-from dotenv import load_dotenv
+
 from datasets import Dataset
+from dotenv import load_dotenv
 from ragas import evaluate
 from ragas.metrics.collections import (
-    Faithfulness,
     AnswerRelevancy,
     ContextPrecision,
     ContextRecall,
+    Faithfulness,
 )
+
 from src.agents.graph import run_query
 
 load_dotenv()
@@ -69,17 +71,11 @@ def run_benchmark(qa_pairs: list[dict]) -> dict:
 def evaluate_with_ragas(data: dict) -> dict:
     """Run RAGAs metrics on the collected data."""
     import asyncio
-    import os
+
     from openai import AsyncOpenAI
-    from ragas.llms import llm_factory
-    from ragas.embeddings import OpenAIEmbeddings
-    from ragas.metrics.collections import (
-        Faithfulness,
-        AnswerRelevancy,
-        ContextPrecision,
-        ContextRecall,
-    )
     from ragas.dataset_schema import SingleTurnSample
+    from ragas.embeddings import OpenAIEmbeddings
+    from ragas.llms import llm_factory
 
     print("\nRunning RAGAs evaluation...")
 
@@ -104,13 +100,6 @@ def evaluate_with_ragas(data: dict) -> dict:
             "context_precision": [],
             "context_recall": [],
         }
-
-        metric_names = [
-            "faithfulness",
-            "answer_relevancy",
-            "context_precision",
-            "context_recall",
-        ]
 
         for i in range(len(data["question"])):
             print(f"  Scoring sample {i+1}/{len(data['question'])}...")

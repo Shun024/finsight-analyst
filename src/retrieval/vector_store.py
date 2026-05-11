@@ -5,6 +5,7 @@ semantic similarity search with metadata filtering.
 
 import chromadb
 from chromadb.config import Settings
+
 from src.retrieval.embedder import Embedder
 
 

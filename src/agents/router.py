@@ -3,10 +3,12 @@ Router Agent: classifies the query and extracts metadata filters.
 Determines how the retriever should search.
 """
 
-import os
 import json
+import os
+
 from dotenv import load_dotenv
 from openai import OpenAI
+
 from src.agents.state import AgentState
 
 load_dotenv()

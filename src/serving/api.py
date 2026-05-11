@@ -3,11 +3,12 @@ FinSight Analyst — FastAPI REST API
 Production serving layer for the LangGraph agent.
 """
 
+import time
+from datetime import datetime
+
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from datetime import datetime
-import time
 
 from src.agents.graph import run_query
 

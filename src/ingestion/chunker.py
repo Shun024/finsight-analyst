@@ -3,8 +3,10 @@ Chunker: splits parsed pages into overlapping chunks for embedding.
 Uses token-aware splitting to respect LLM context limits.
 """
 
+from dataclasses import asdict, dataclass
+
 import tiktoken
-from dataclasses import dataclass, asdict
+
 from src.ingestion.pdf_parser import ParsedPage
 
 
