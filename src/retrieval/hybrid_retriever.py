@@ -11,8 +11,8 @@ def reciprocal_rank_fusion(
     dense_results: list[dict],
     sparse_results: list[dict],
     k: int = 60,
-    dense_weight: float = 0.7,
-    sparse_weight: float = 0.3,
+    dense_weight: float = 0.9,    # updated
+    sparse_weight: float = 0.1,   # updated
 ) -> list[dict]:
     """
     Merge dense and sparse results using weighted RRF.
@@ -70,6 +70,8 @@ class HybridRetriever:
         self,
         query: str,
         top_k: int = 6,
+        dense_weight: float = 0.9,    # updated from 0.7
+        sparse_weight: float = 0.1,   # updated from 0.3
         filter_company: str | None = None,
         filter_year: str | None = None,
     ) -> list[dict]:

@@ -48,7 +48,24 @@ Evaluated on 10 hand-labelled Q&A pairs from real financial filings using RAGAs:
 | **Context Precision** | 0.553 | Proportion of retrieved chunks that are relevant |
 | **Overall Average** | **0.720** | |
 
+## MLflow Experiment Results
+
+Swept 5 retrieval configurations across 10 QA pairs. Best config: `dense_heavy`.
+
+| Config | Faithfulness | Answer Relevancy | Context Precision | Context Recall | Overall |
+|---|---|---|---|---|---|
+| **dense_heavy** ✅ | **0.885** | **0.820** | 0.562 | 0.700 | **0.742** |
+| sparse_heavy | 0.850 | 0.623 | 0.584 | 0.700 | 0.689 |
+| larger_chunks | 0.823 | 0.645 | 0.543 | 0.700 | 0.678 |
+| more_chunks | 0.819 | 0.628 | 0.553 | 0.700 | 0.675 |
+| baseline | 0.800 | 0.634 | 0.546 | 0.700 | 0.670 |
+
+**Finding:** Higher semantic weight (0.9 dense) outperforms balanced hybrid for 
+financial Q&A — conceptually phrased questions benefit more from embedding 
+similarity than exact term matching. Experiment tracked with MLflow.
+
 ---
+
 
 ## Document Corpus
 
