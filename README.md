@@ -1,5 +1,7 @@
 # 📊 FinSight Analyst
 
+![CI](https://github.com/Shun024/finsight-analyst/actions/workflows/lint-test.yml/badge.svg)
+
 An agentic RAG system for UK financial document intelligence. Answers complex questions over real annual reports and regulatory filings using a 4-node LangGraph agent with hybrid retrieval and hallucination detection.
 
 **Live demo:** [HuggingFace Spaces](#) *(coming soon)*
